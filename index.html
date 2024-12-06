@@ -4,131 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emoji  Game</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #000;
-        margin: 0;
-        padding: 20px;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-      .game-container {
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px #fff;
-        display: inline-block;
-        height: 60vh;
-        width: 40vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 30px;
-      }
-      .emoji-display {
-        font-size: 3rem;
-        margin-bottom: 20px;
-      }
-      input {
-        padding: 10px;
-        width: 90%;
-        box-shadow: #333 0 0 5px;
-        border-radius: 5px;
-      }
-      button {
-          padding: 10px 20px;
-          border: none;
-          box-shadow: #fff 0 0 5px;
-        color: white;
-        background: transparent;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        width: 94%;
-      }
-      button:hover {
-        background-color: green;
-      }
-      .score {
-        font-size: 1.5rem;
-        margin-top: 20px;
-      }
-      .message {
-        margin-top: 10px;
-        font-size: 1rem;
-        color: #555;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="game-container">
-      <div class="emoji-display" id="emoji-display">🍏🍎</div>
+    <div class="container">
+      <div class="emoji" id="emoji">🍏🍎</div>
       <input type="text" id="emoji-input" placeholder="Guess emoji....." />
       <button onclick="checkGuess()">Submit</button>
       <div class="score" id="score">Score: 0</div>
       <div class="message" id="message"></div>
     </div>
-
-    <script>
-      const emojiPairs = [
-        { emojis: ["🍏", "🍎"], name: "apple" },
-        { emojis: ["🍌", "🍉"], name: "fruit" },
-        { emojis: ["🐱", "🐶"], name: "animals" },
-        { emojis: ["🏠", "🏡"], name: "house" },
-        { emojis: ["🍕", "🍔"], name: "food" },
-        { emojis: ["🍓", "🍒"], name: "berries" },
-        { emojis: ["🌧️", "⛈️"], name: "weather" },
-        { emojis: ["🚗", "🛵"], name: "vehicles" },
-        { emojis: ["🍦", "🍪"], name: "desserts" },
-        { emojis: ["🦁", "🐯"], name: "big cats" },
-        { emojis: ["🎩", "👗"], name: "fashion" },
-        { emojis: ["⚽", "🏀"], name: "sports" },
-        { emojis: ["🎶", "🎸"], name: "music" },
-        { emojis: ["🌍", "🌎"], name: "earth" },
-        { emojis: ["🎮", "🕹️"], name: "gaming" },
-        { emojis: ["🍔", "🍟"], name: "fast food" },
-        { emojis: ["🎂", "🍰"], name: "cake" },
-        { emojis: ["🎁", "🎉"], name: "celebration" },
-        { emojis: ["🧳", "✈️"], name: "travel" },
-        { emojis: ["🦋", "🌸"], name: "nature" },
-        { emojis: ["⚡", "🔥"], name: "elements" },
-        { emojis: ["🖥️", "💻"], name: "technology" },
-      ];
-
-      let currentEmojiIndex = 0;
-      let score = 0;
-      function updateEmoji() {
-        currentEmojiIndex = Math.floor(Math.random() * emojiPairs.length);
-        const currentEmojis = emojiPairs[currentEmojiIndex].emojis;
-        document.getElementById("emoji-display").textContent =
-          currentEmojis.join(" ");
-      }
-      function checkGuess() {
-        const userInput = document
-          .getElementById("emoji-input")
-          .value.toLowerCase();
-        const currentPair = emojiPairs[currentEmojiIndex];
-
-        if (userInput === currentPair.name) {
-          score++;
-          document.getElementById("message").textContent = "Correct! 🎉";
-        } else {
-          score--;
-          document.getElementById(
-            "message"
-          ).textContent = `Wrong! The correct answer was "${currentPair.name}".`;
-        }
-
-        document.getElementById("score").textContent = `Score: ${score}`;
-        document.getElementById("emoji-input").value = "";
-        updateEmoji();
-      }
-      updateEmoji();
-    </script>
   </body>
+  <script src="script.js"></script>
 </html>
