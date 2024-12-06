@@ -15,7 +15,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 10px #fff;
   display: inline-block;
-  height: 60vh;
+  min-height: 60vh;
   width: 40vw;
   display: flex;
   align-items: center;
@@ -58,5 +58,5 @@ button:hover {
 .message {
   margin-top: 10px;
   font-size: 1rem;
-  color: #555;
+  color: #333;
 }
